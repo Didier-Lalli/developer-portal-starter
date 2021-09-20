@@ -2,7 +2,7 @@
 title: Demo API Portal
 ---
 
-import { LandingLayout } from '@redocly/ui';
+import { LandingLayout } from '@redocly/developer-portal/ui';
 
 import {
   Button,
@@ -17,9 +17,10 @@ import {
   H2,
   H3,
   SectionHeader,
-} from '@redocly/ui';
+  Typography
+} from '@redocly/developer-portal/ui';
 
-import { NavBar } from '@redocly/ui';
+import { NavBar } from '@redocly/developer-portal/ui';
 
 import icon1 from './images/hpe.svg';
 import launchFastIcon from './images/launch-fast.svg';
@@ -30,15 +31,15 @@ import hpeElement from "./images/HPE_ELEMENT_20210217008_16x9_1600_0_72_RGB.jpg"
 
 export default LandingLayout;
 
-<NavBar location={props.location} standalone={false}  />
+<NavBar location={props.location} standalone={false} title="TEST" />
 <Jumbotron bgImage={hpeElement} textColor="white">
   <Flex width="25%" ml={150} flexDirection="column" alignContent="center" alignItems="flex-start">
     <H1 mb="0">Product XXX API </H1>
     <H2 mb="0">Reference Documents</H2>
-    <H3>
+    <Typography textColor="white">
         Lorem ipsum dolor sit amet, pri putent oportere quaerendum in, ea mea justo invenire
         aliquando. Usu modo suavitate ea. Et sed labitur epicurei adipiscing. 
-    </H3>
+    </Typography>
       <Button small primary parent to="developer-portal/index.md">
       Get started
       </Button>
