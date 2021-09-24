@@ -6,7 +6,6 @@ import { LandingLayout } from '@redocly/developer-portal/ui';
 
 import {
   Button,
-  Box,
   FlexSection,
   Flex,
   Jumbotron,
@@ -20,6 +19,20 @@ import {
   Typography
 } from '@redocly/developer-portal/ui';
 
+import {
+  Grommet,
+  Section,
+  Box,
+  Card,
+  CardBody,
+  CardHeader,
+  Heading,
+  RoutedButton,
+  Text,
+} from 'grommet';
+
+import { hpe } from 'grommet-theme-hpe';
+
 import { NavBar } from '@redocly/developer-portal/ui';
 
 import icon1 from './images/hpe.svg';
@@ -28,6 +41,7 @@ import icon3 from './images/icon3.png';
 import bookManagementIcon from './images/book-management.svg';
 import foundOrPrivate from './images/found-or-private.svg';
 import hpeElement from "./images/HPE_ELEMENT_20210217008_16x9_1600_0_72_RGB.jpg";
+import LandingCard from './components/LandingCard';
 
 export default LandingLayout;
 
@@ -45,66 +59,39 @@ export default LandingLayout;
       </Button>
   </Flex>
 </Jumbotron>
-<Box my={25}>
-  <SectionHeader>
-    List your <Emphasis>API </Emphasis> here!
-  </SectionHeader>
-  <FlexSection justifyContent="space-around" flexWrap="wrap">
-    <ThinTile to="developer-portal/index.md" icon={icon1} header="Rock">
-        Lorem ipsum dolor sit amet, pri putent oportere quaerendum in, ea mea justo invenire
-        aliquando. Usu modo suavitate ea. Et sed labitur epicurei adipiscing. Nibh zril labitur
-        an usu.Lorem ipsum dolor sit amet, pri putent oportere quaerendum in, ea mea justo
-        invenire aliquando. Usu modo suavitate ea. Et sed labitur epicurei adipiscing. Nibh zril
-        labitur an usu.Lorem ipsum dolor sit amet, pri putent oportere quaerendum in, ea mea
-        justo invenire aliquando. Usu modo suavitate ea. Et sed labitur epicurei adipiscing.
-    </ThinTile>
-    <ThinTile to="developer-portal/index.md" icon={launchFastIcon} header="Paper">
-        Lorem ipsum dolor sit amet, pri putent oportere quaerendum in, ea mea justo invenire
-        aliquando. Usu modo suavitate ea. Et sed labitur epicurei adipiscing. Nibh zril labitur
-        an usu.
-    </ThinTile>
-    <ThinTile to="contact.mdx" icon={icon3} header="Scissors">
-        Lorem ipsum dolor sit amet, pri putent oportere quaerendum in, ea mea justo invenire
-        aliquando. Usu modo suavitate ea. Et sed labitur epicurei adipiscing. Nibh zril labitur
-        an usu.
-    </ThinTile>
-  </FlexSection>
-  {/* <Jumbotron parallaxEffect bgImage={icon1}>
-    <H1>Tutorials</H1>
-    <H2>Get setup faster...</H2>
-  </Jumbotron> */}
-  <SectionHeader>
-    <Emphasis>Explore our platforms</Emphasis>
-  </SectionHeader>
-  <FlexSection justifyContent="space-around" flexWrap="wrap">
-    <ThinTile icon={icon3} to="https://hpe.com" header="HPE">
-        Lorem ipsum dolor sit amet, pri putent oportere quaerendum in, ea mea justo invenire
-        aliquando. Usu modo suavitate ea. Et sed labitur epicurei adipiscing. Nibh zril labitur
-        an usu.
-    </ThinTile>
-    <ThinTile to="https://developer.hpe.com" header="HPE DEV">
-        Lorem ipsum dolor sit amet, pri putent oportere quaerendum in, ea mea justo invenire
-        aliquando. Usu modo suavitate ea. Et sed labitur epicurei adipiscing. Nibh zril labitur
-        an usu.
-    </ThinTile>
-    <ThinTile to="https://grommet.io" header="Grommet">
-        The HPE GreenLake edge-to-cloud platform transforms IT into a service consumed on-demand.
-    </ThinTile>
-    <ThinTile to="developer-portal/index.md" header="Hack Shack">
-        Lorem ipsum dolor sit amet, pri putent oportere quaerendum in, ea mea justo invenire
-        aliquando. Usu modo suavitate ea. Et sed labitur epicurei adipiscing. Nibh zril labitur
-        an usu.
-    </ThinTile>
-    <ThinTile to="developer-portal/index.md" header="Slack">
-        Lorem ipsum dolor sit amet, pri putent oportere quaerendum in, ea mea justo invenire
-        aliquando. Usu modo suavitate ea. Et sed labitur epicurei adipiscing. Nibh zril labitur
-        an usu.
-    </ThinTile>
-    <ThinTile to="developer-portal/index.md" header="Github">
-        Lorem ipsum dolor sit amet, pri putent oportere quaerendum in, ea mea justo invenire
-        aliquando. Usu modo suavitate ea. Et sed labitur epicurei adipiscing. Nibh zril labitur
-        an usu.
-    </ThinTile>
-  </FlexSection>
-</Box>
+<Grommet theme={hpe}>
+  <Box align='center' pad='medium'>
+    <Heading
+      textAlign='center'
+      style={{ fontWeight: '400' }}
+      level='2'
+      margin={{ vertical: 'large' }}
+    >
+      Manage your datacenter with <strong>Redfish</strong> today!
+    </Heading>
+    <Box
+      style={{ maxWidth: 1800 }}
+      margin={{ vertical: 'large' }}
+      direction='row'
+      wrap={true}
+      justify='center'
+    >
+      <LandingCard
+        margin='medium'
+        path='docs/greenlake/services/private-cloud/public/'
+        icon={icon1}
+        titleText='Private Cloud'
+        bodyText='Build a flexible, secure private cloud with point-and-click provisioning to stand up VMs in minutes.'
+      />
+      <LandingCard
+        margin='medium'
+        path='docs/greenlake/services/iam/public/'
+        icon={icon3}
+        titleText='IAM'
+        bodyText='Identity and Access Management is all about users, user groups, API clients, roles, spaces, and the assignments among them.'
+      />
+    </Box>
+  </Box>
+</Grommet>
+
 

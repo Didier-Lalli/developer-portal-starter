@@ -1,0 +1,4 @@
+.search-box-override span input {
+  padding: 6px 10px;
+  background-color: green;
+}

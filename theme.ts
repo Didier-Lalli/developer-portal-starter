@@ -1,150 +1,153 @@
-import { lighten, darken, readableColor } from 'polished';
+import { readableColor, transparentize } from 'polished';
+import saturnTheme from './grommet-theme.json';
 
 export const theme = {
-  // spacing: {
-  //   unit: 5,
-  //   sectionHorizontal: ({ spacing }) => spacing.unit * 8,
-  //   sectionVertical: ({ spacing }) => spacing.unit * 8,
-  // },
-  // breakpoints: {
-  //   xs: 0,
-  //   small: '550px',
-  //   medium: '900px',
-  //   large: '1200px',
-  // },
-  colors: {
-    // tonalOffset: 0.2,
-    primary: {
-      //main: '#000000',
-      main: '#227a88',
-      // light: ({ colors }) => lighten(colors.tonalOffset, colors.primary.main),
-      // dark: ({ colors }) => darken(colors.tonalOffset, colors.primary.main),
-      // contrastText: ({ colors }) => readableColor(colors.primary.main),
-    },
-    // success: {
-    //   main: '#00aa13',
-    //   light: ({ colors }) => lighten(colors.tonalOffset * 3, colors.success.main),
-    //   dark: ({ colors }) => darken(colors.tonalOffset, colors.success.main),
-    //   contrastText: ({ colors }) => readableColor(colors.success.main),
-    // },
-    // error: {
-    //   main: '#e53935',
-    //   light: ({ colors }) => lighten(colors.tonalOffset * 2, colors.error.main),
-    //   dark: ({ colors }) => darken(colors.tonalOffset, colors.error.main),
-    //   contrastText: ({ colors }) => readableColor(colors.error.main),
-    // },
-    // warning: {
-    //   main: '#d4ad03',
-    //   light: ({ colors }) => lighten(colors.tonalOffset * 2, colors.warning.main),
-    //   dark: ({ colors }) => darken(colors.tonalOffset, colors.warning.main),
-    //   contrastText: ({ colors }) => readableColor(colors.warning.main),
-    // },
-    // info: {
-    //   main: '#4782cb',
-    //   light: ({ colors }) => lighten(colors.tonalOffset * 2, colors.info.main),
-    //   dark: ({ colors }) => darken(colors.tonalOffset, colors.info.main),
-    //   contrastText: ({ colors }) => readableColor(colors.info.main),
-    // },
-    text: {
-      primary: '#424242',
-      // secondary: '#4e566d',
-    },
-    // border: {
-    //   dark: 'rgba(0,0,0, 0.15)',
-    //   light: '#ffffff',
-    // },
-    // responses: {
-    //   success: {
-    //     color: ({ colors }) => colors.success.main,
-    //     backgroundColor: ({ colors }) => transparentize(0.9, colors.success.main),
-    //   },
-    //   error: {
-    //     color: ({ colors }) => colors.error.main,
-    //     backgroundColor: ({ colors }) => transparentize(0.9, colors.error.main),
-    //   },
-    //   redirect: {
-    //     color: ({ colors }) => colors.warning.main,
-    //     backgroundColor: ({ colors }) => transparentize(0.9, colors.responses.redirect.color),
-    //   },
-    //   info: {
-    //     color: ({ colors }) => colors.info.main,
-    //     backgroundColor: ({ colors }) => transparentize(0.9, colors.responses.info.color),
-    //   },
-    // },
-    http: {
-      get: '#6bbd5b',
-      post: '#248fb2',
-      put: '#9b708b',
-      options: '#d3ca12',
-      patch: '#e09d43',
-      delete: '#e27a7a',
-      basic: '#999',
-      link: '#31bbb6',
-      head: '#c167e4',
-    },
-    // navbar: {
-    //   main: ({ colors }) => colors.primary.main,
-    //   gradient: ({ colors }) => darken(colors.tonalOffset / 2, colors.navbar.main),
-    //   contrastText: 'white'
-    // },
-    // footer: {
-      // main: ({ colors }) => colors.primary.main,
-      // contrastText: 'white'
-    // },
+  spacing: {
+    unit: 5,
+    sectionHorizontal: ({ spacing }) => spacing.unit * 8,
+    sectionVertical: ({ spacing }) => spacing.unit * 8,
   },
-
+  breakpoints: {
+    xs: `${saturnTheme.global.breakpoints.small.value}px`,
+    small: `${saturnTheme.global.breakpoints.small.value}px`,
+    medium: `${saturnTheme.global.breakpoints.small.value}px`,
+    large: `${saturnTheme.global.breakpoints.medium.value}px`,
+  },
+  colors: {
+    tonalOffset: 0.2,
+    primary: {
+      main: saturnTheme.global.colors['green!'],
+      contrastText: saturnTheme.global.colors['background-front'].dark,
+    },
+    success: {
+      main: saturnTheme.global.colors['status-ok'].light,
+      light: saturnTheme.global.colors['status-ok'].light,
+      dark: saturnTheme.global.colors['status-ok'].dark,
+      contrastText: ({ colors }) => readableColor(colors.success.main),
+    },
+    error: {
+      main: saturnTheme.global.colors['status-error'].light,
+      light: saturnTheme.global.colors['status-error'].light,
+      dark: saturnTheme.global.colors['status-error'].dark,
+      contrastText: ({ colors }) => readableColor(colors.error.main),
+    },
+    warning: {
+      main: saturnTheme.global.colors['status-warning'].light,
+      light: saturnTheme.global.colors['status-warning'].light,
+      dark: saturnTheme.global.colors['status-warning'].dark,
+      contrastText: ({ colors }) => readableColor(colors.warning.main),
+    },
+    info: {
+      main: saturnTheme.global.colors['status-unknown'].light,
+      light: saturnTheme.global.colors['status-unknown'].light,
+      dark: saturnTheme.global.colors['status-unknown'].dark,
+      contrastText: ({ colors }) => readableColor(colors.info.main),
+    },
+    text: {
+      primary: saturnTheme.global.colors.text.light,
+    },
+    border: {
+      dark: saturnTheme.global.colors.border.dark,
+      light: saturnTheme.global.colors.border.light,
+    },
+    responses: {
+      success: {
+        color: ({ colors }) => colors.success.main,
+        backgroundColor: ({ colors }) => transparentize(0.9, colors.success.main),
+      },
+      error: {
+        color: ({ colors }) => colors.error.main,
+        backgroundColor: ({ colors }) => transparentize(0.9, colors.error.main),
+      },
+      redirect: {
+        color: ({ colors }) => colors.warning.main,
+        backgroundColor: ({ colors }) => transparentize(0.9, colors.responses.redirect.color),
+      },
+      info: {
+        color: ({ colors }) => colors.info.main,
+        backgroundColor: ({ colors }) => transparentize(0.9, colors.responses.info.color),
+      },
+    },
+    http: {
+      get: saturnTheme.global.colors['green!'],
+      post: saturnTheme.global.colors['yellow!'],
+      put: saturnTheme.global.colors['orange!'],
+      options: saturnTheme.global.colors['purple!'],
+      patch: saturnTheme.global.colors['teal!'],
+      delete: saturnTheme.global.colors['red!'],
+      basic: '#999',
+      link: saturnTheme.global.colors['blue!'],
+      head: saturnTheme.global.colors['blue!'],
+    },
+  },
   sidebar: {
     backgroundColor: '#fafafa',
-    width: '260px',
+    width: '320px',
+    spacing: {
+	    paddingVertical: 12,
+	    offsetNesting: 6,
+    }
   },
-  // tocPanel: {
-  //   width: '240px',
-  // },
-
   typography: {
-    fontSize: '16px',
-    lineHeight: '1.5em',
+    fontSize: '18px',
+    lineHeight: '1.45em',
     fontWeightRegular: '400',
     fontWeightBold: '600',
     fontWeightLight: '300',
-    fontFamily: '"Source Sans Pro", sans-serif',
+    fontFamily: 'Metric, Arial, sans-serif',
     headings: {
-      fontFamily: '"Source Sans Pro", sans-serif',
+      fontFamily: saturnTheme.global.font.family,
       fontWeight: '600',
+      lineHeight: ({ typography }) => typography.lineHeight,
     },
-    // heading1: {
-    //   fontSize: '1.85714em',
-    //   fontWeight: '600',
-    //   fontFamily: ({ typography }) => typography.headings.fontFamily,
-    //   lineHeight: ({ typography }) => typography.lineHeight,
-    //   color: ({ colors }) => colors.primary.main,
-    //   capitalize: true,
-    // },
-    // heading2: {
-    //   fontSize: '1.57143em',
-    //   fontWeight: '600',
-    //   color: ({ colors }) => colors.text.primary,
-    //   fontFamily: ({ typography }) => typography.headings.fontFamily,
-    //   lineHeight: ({ typography }) => typography.lineHeight,
-    //   capitalize: false,
-    // },
-    // heading3: {
-    //   fontSize: '1.27em',
-    //   fontWeight: '600',
-    //   color: ({ colors }) => colors.text.primary,
-    //   fontFamily: ({ typography }) => typography.headings.fontFamily,
-    //   lineHeight: ({ typography }) => typography.lineHeight,
-    //   capitalize: false,
-    // },
-    // heading4: {
-    // // ...
-    // },
-    // heading5: {
-    // // ...
-    // },
-    // heading6: {
-    // // ...
-    // },
+    heading1: {
+      fontSize: saturnTheme.heading.level[1].medium.size,
+      fontWeight: ({ typography }) => typography.headings.fontWeight,
+      fontFamily: ({ typography }) => typography.headings.fontFamily,
+      lineHeight: ({ typography }) => typography.headings.lineHeight,
+      color: ({ colors }) => colors.text.primary,
+      capitalize: false,
+    },
+    heading2: {
+      fontSize: saturnTheme.heading.level[2].medium.size,
+      fontWeight: ({ typography }) => typography.headings.fontWeight,
+      color: ({ colors }) => colors.text.primary,
+      fontFamily: ({ typography }) => typography.headings.fontFamily,
+      lineHeight: ({ typography }) => typography.headings.lineHeight,
+      capitalize: false,
+    },
+    heading3: {
+      fontSize: saturnTheme.heading.level[3].medium.size,
+      fontWeight: ({ typography }) => typography.headings.fontWeight,
+      color: ({ colors }) => colors.text.primary,
+      fontFamily: ({ typography }) => typography.headings.fontFamily,
+      lineHeight: ({ typography }) => typography.headings.lineHeight,
+      capitalize: false,
+    },
+    heading4: {
+      fontSize: saturnTheme.heading.level[4].medium.size,
+      fontWeight: ({ typography }) => typography.headings.fontWeight,
+      color: ({ colors }) => colors.text.primary,
+      fontFamily: ({ typography }) => typography.headings.fontFamily,
+      lineHeight: ({ typography }) => typography.headings.lineHeight,
+      capitalize: false,
+    },
+    heading5: {
+      fontSize: saturnTheme.heading.level[5].medium.size,
+      fontWeight: ({ typography }) => typography.headings.fontWeight,
+      color: ({ colors }) => colors.text.primary,
+      fontFamily: ({ typography }) => typography.headings.fontFamily,
+      lineHeight: ({ typography }) => typography.headings.lineHeight,
+      capitalize: false,
+    },
+    heading6: {
+      fontSize: saturnTheme.heading.level[6].medium.size,
+      fontWeight: ({ typography }) => typography.headings.fontWeight,
+      color: ({ colors }) => colors.text.primary,
+      fontFamily: ({ typography }) => typography.headings.fontFamily,
+      lineHeight: ({ typography }) => typography.headings.lineHeight,
+      capitalize: false,
+    },
     code: {
       fontSize: '14px',
       fontFamily: 'Courier, monospace',
@@ -155,31 +158,12 @@ export const theme = {
     },
     links: {
       color: ({ colors }) => colors.primary.main,
-      visited: ({ typography }) => typography.links.color,
-      hover: ({ typography }) => lighten(0.2, typography.links.color),
+      hover: ({ colors }) => colors.text.primary,
+      fontWeight: '500',
     },
   },
   rightPanel: {
-    backgroundColor: '#263238',
     width: '40%',
-    // textColor: '#ffffff',
+    textColor: ({ colors }) => colors.text.primary,
   },
-  schema: {
-    nestedBackground: '#fafafa',
-    // linesColor: theme => lighten( theme.colors.tonalOffset, desaturate(theme.colors.tonalOffset, theme.colors.primary.main) ),
-    // defaultDetailsWidth: '75%',
-    // typeNameColor: theme => theme.colors.text.secondary,
-    // typeTitleColor: theme => theme.schema.typeNameColor,
-    // requireLabelColor: theme => theme.colors.error.main,
-    // labelsTextSize: '0.9em',
-    // nestingSpacing: '1em',
-    // arrow: {
-    //   size: '1.1em',
-    //   color: theme => theme.colors.text.secondary,
-    // },
-  },
-  // codeBlock: {
-  //   backgroundColor: ({ rightPanel }) => darken(0.1, rightPanel.backgroundColor),
-  //   tokens: {},
-  // },
 };
