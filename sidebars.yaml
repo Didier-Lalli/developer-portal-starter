@@ -36,8 +36,6 @@ training:
         page: developer-portal/oas-definitions.md
       - label: Adding an API response to an MDX page
         page: developer-portal/mdx.mdx
-      - label: Creating React components
-        page: developer-portal/custom-component.mdx
   - group: Petstore reference
     expanded: false
     pages:

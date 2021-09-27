@@ -13,7 +13,7 @@ import {
 import { hpe } from 'grommet-theme-hpe';
 import { Menu as MenuIcon, Close as CloseIcon } from 'grommet-icons';
 import { SearchBox, theme, navigate } from '@redocly/ui';
-import './NavBar.tsx';
+import './NavBar.css';
 
 function MobileMenu({ links, search, logo }) {
   const ref = React.useRef(null);
@@ -67,7 +67,6 @@ function MobileMenu({ links, search, logo }) {
 }
 
 function Menu({ links, search, logo }) {
-  console.log(SearchBox);
   const size = React.useContext(ResponsiveContext);
 
   if (size === 'small') {
